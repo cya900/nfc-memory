@@ -56,12 +56,17 @@ export default function MemoryPage({ params }: { params: Promise<{ id: string }>
           transition={{ duration: 0.8 }}
           className="max-w-md w-full"
         >
-          <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-800">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 1, ease: 'easeOut' }}
+            className="rounded-2xl overflow-hidden shadow-2xl border border-gray-800"
+          >
             {data.media_type === 'image' && (
               <img src={data.media_url} alt="memory" className="w-full h-auto" />
             )}
             {data.media_type === 'video' && (
-              <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl">
+              <div className="relative w-full aspect-video overflow-hidden">
                 <video
                   src={data.media_url}
                   controls
@@ -81,7 +86,7 @@ export default function MemoryPage({ params }: { params: Promise<{ id: string }>
                 <audio src={data.media_url} controls className="w-full" />
               </div>
             )}
-          </div>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0 }}
