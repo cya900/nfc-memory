@@ -61,14 +61,19 @@ export default function MemoryPage({ params }: { params: Promise<{ id: string }>
               <img src={data.media_url} alt="memory" className="w-full h-auto" />
             )}
             {data.media_type === 'video' && (
-              <video
-                src={data.media_url}
-                controls
-                autoPlay
-                muted
-                playsInline
-                className="w-full"
-              />
+              <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl">
+                <video
+                  src={data.media_url}
+                  controls
+                  autoPlay
+                  muted
+                  playsInline
+                  preload="auto"
+                  className="w-full h-full object-cover"
+                >
+                  您的瀏覽器不支援播放此影片。
+                </video>
+              </div>
             )}
             {data.media_type === 'audio' && (
               <div className="p-8 bg-gray-900 text-center">
