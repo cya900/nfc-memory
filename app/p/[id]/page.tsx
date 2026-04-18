@@ -91,7 +91,7 @@ export default function MemoryPage({ params }: { params: Promise<{ id: string }>
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2, duration: 0.8 }}
-            className="font-permanent-marker text-xl text-gray-500 tracking-wide"
+            className="font-permanent-marker text-lg text-gray-500 tracking-wide"
           >
             {data.title ?? '你收到一份回憶...'}
           </motion.h1>
